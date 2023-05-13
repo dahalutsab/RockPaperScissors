@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable</title>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Rock Paper Sissors</h3>
+
+        <p class="human" id="human">Your Choice:</p>
+        <p class="computer" id="computer">Computer Choice:</p>
+    
+    
+        <p id="status"></p>
+        <button onclick="
+           play('Rock') ;
+            ">Rock</button>
+    
+        <button onclick="
+            play('Paper')
+            ">Paper</button>
+    
+    
+        <button onclick="
+            play('Scissors')
+            ">Scissors</button>
+    </div>
+    
+   
+
+
+</body>
+<script>
+    const computerPick = '';
+    function play(userPick) {
+        const computerPick = pickComputerMove();
+        document.getElementById("human").innerHTML = `Your Choice: ${userPick}`
+        // console.log(computer)
+        if(userPick === "Rock"){
+            if(computerPick === "Rock"){
+                gameStatus = 'Tie'
+            }else if(computerPick === "Paper"){
+                gameStatus = 'You Lose'
+            } else if (computerPick === "Scissors"){
+                gameStatus = 'You win'
+             }
+        }else if (userPick === "Paper") {
+            if(computerPick === "Paper"){
+                gameStatus = 'Tie'
+            }else if(computerPick === "Rock"){
+                gameStatus = 'You Lose'
+            } else if (computerPick === "Scissors"){
+                gameStatus = 'You win'
+             }
+        }else if (userPick === "Scissors") {
+            if(computerPick === "Scissors"){
+                gameStatus = 'Tie'
+            }else if(computerPick === "Paper"){
+                gameStatus = 'You Lose'
+            } else if (computerPick === "Rock"){
+                gameStatus = 'You win'
+            }
+        }
+        document.getElementById("status").innerHTML = `Game Status: ${gameStatus}`
+        return computerPick;
+    }
+    
+
+    function pickComputerMove () {
+        let computerPick = '';
+        const randNum = Math.random();
+        if (randNum<1/3){
+            computerPick = 'Rock';
+        } else if (randNum<2/3){
+            computerPick = 'Paper';
+        }else{
+            computerPick = 'Scissors';
+        }
+        document.getElementById("computer").innerHTML = `Computer Choice: ${computerPick}`
+        return computerPick;
+
+    }
+  
+</script>
+</html>
